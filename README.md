@@ -1,9 +1,14 @@
 Ting jeg lærer
 •	Database-bruk (firebase)
+
 •	Login med firebase
+
 •	Ux og ui
+
 •	Brukervennlighet 
+
 •	Bruk av documentasjon
+
 •	Lage documentasjon
 
 Finne farger i logoen som kan brukes:
