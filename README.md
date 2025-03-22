@@ -12,6 +12,8 @@ Farge2: grønn hex: 89bd4f
 Farge3: beuige hex: e3ddd1
 
 
+made a js-dokument for the header so it is the same on all sites
+name= "header.js"
 
    
 
