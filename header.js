@@ -1,4 +1,4 @@
-function header(){
-    document.getElementById(hearderjs).innerHTML(<h1>nam</h1>)
+function updateHeader() {
+    document.getElementById("headerjs").innerHTML = "<h1>nam</h1>";
 }
-header()
+updateHeader();
