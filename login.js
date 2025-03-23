@@ -4,7 +4,6 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
     onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 
@@ -13,7 +12,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyA46HBePnhgJKKBG0WfpGnYk5bInRQXNG4",
   authDomain: "sandmontessadmin.firebaseapp.com",
   projectId: "sandmontessadmin",
-  storageBucket: "sandmontessadmin.firebasestorage.app",
+  storageBucket: "sandmontessadmin.appspot.com",
   messagingSenderId: "967852826423",
   appId: "1:967852826423:web:1ebfd677a89411b76984b2",
   measurementId: "G-E0VE27XL96"
@@ -26,7 +25,6 @@ const auth = getAuth(app);
 
 // DOM elements
 const loginButton = document.getElementById('loginButton');
-const registerButton = document.getElementById('registerButton');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const errorMessage = document.getElementById('errorMessage');
@@ -57,31 +55,5 @@ loginButton.addEventListener('click', function() {
             // Handle errors
             errorMessage.textContent = error.message;
             console.error('Login error:', error.code, error.message);
-        });
-});
-
-// Registration functionality
-registerButton.addEventListener('click', function() {
-    const email = emailInput.value;
-    const password = passwordInput.value;
-    
-    if (!email || !password) {
-        errorMessage.textContent = 'Please enter both email and password';
-        return;
-    }
-    
-    if (password.length < 6) {
-        errorMessage.textContent = 'Password should be at least 6 characters';
-        return;
-    }
-    
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Registration successful, redirect will happen via onAuthStateChanged
-        })
-        .catch((error) => {
-            // Handle errors
-            errorMessage.textContent = error.message;
-            console.error('Registration error:', error.code, error.message);
         });
 });
