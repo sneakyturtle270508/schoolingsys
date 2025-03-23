@@ -1,15 +1,27 @@
-**Things I am learning:**  
-- Using databases (Firebase)  
-- Login with Firebase  
-- UX and UI (User Experience and User Interface)  
-- Usability  
-- Using documentation  
-- Creating documentation  
+# 🚀 Project Overview
 
-**Finding colors in the logo that can be used:**  
-- **Color 1:** Blue (hex: `#458FCC`)  
-- **Color 2:** Green (hex: `#89BD4F`)  
-- **Color 3:** Beige (hex: `#E3DDD1`)  
+## 📚 Technologies & Skills I'm Learning
+- **Firebase**: 
+  - Database management (storing articles and images)
+  - User authentication (login system)
+- **UX & UI Design**: Enhancing user experience and interface design
+- **Usability**: Creating intuitive and accessible designs
+- **Documentation**: 
+  - Understanding and using technical documentation
+  - Writing clear and comprehensive project documentation
 
-**Created a JavaScript file for the header, so it is the same on all pages:**  
-- **File name:** `header.js`
+## 🎨 Logo Color Palette
+- **Blue**: `#458FCC` (Primary accent)
+- **Green**: `#89BD4F` (Secondary accent)
+- **Beige**: `#E3DDD1` (Neutral background tone)
+
+## 📂 Project Structure
+- **Shared Header**: Ensures consistency across all pages
+  - **File:** `header.js`
+- **Firebase Integration**:
+  - Authentication for user logins
+  - Database for storing articles and images
+
+---
+
+💡 _This project is a work in progress. Stay tuned for updates!_
