@@ -7,42 +7,44 @@
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <div class="admin-header">
+    <header class="admin-header">
         <h1>Admin Panel - Sandoya Montessori</h1>
         <div>
             <span id="userEmail">Loading...</span>
             <button id="logoutButton" class="button-primary button-danger">Logg ut</button>
         </div>
-    </div>
+    </header>
 
-    <div class="tabs">
-        <div class="tab active" data-tab="articles">Mine Artikler</div>
-        <div class="tab" data-tab="images">Mine Bilder</div>
-        <div class="tab" data-tab="staff">Våre Ansatte</div>
-    </div>
+    <nav class="tabs">
+        <button class="tab active" data-tab="articles">Mine Artikler</button>
+        <button class="tab" data-tab="images">Mine Bilder</button>
+        <button class="tab" data-tab="staff">Våre Ansatte</button>
+    </nav>
 
-    <div id="articlesTab" class="tab-content active">
-        <div class="section-header">
-            <h2>Mine Artikler</h2>
-            <button id="newArticleButton" class="button-primary">Ny Artikkel</button>
-        </div>
-        <div class="article-list" id="articleList">
-            <!-- Articles will be populated here via JavaScript -->
-        </div>
-    </div>
+    <main>
+        <section id="articlesTab" class="tab-content active">
+            <header class="section-header">
+                <h2>Mine Artikler</h2>
+                <button id="newArticleButton" class="button-primary">Ny Artikkel</button>
+            </header>
+            <div class="article-list" id="articleList">
+                <!-- Articles will be populated here via JavaScript -->
+            </div>
+        </section>
 
-    <div id="imagesTab" class="tab-content">
-        <h2>Mine Bilder</h2>
-        <button id="uploadImageButton" class="button-primary">Last opp bilde</button>
-        <div id="imageList" class="image-list">
-            <!-- Images will be populated here via JavaScript -->
-        </div>
-    </div>
+        <section id="imagesTab" class="tab-content">
+            <h2>Mine Bilder</h2>
+            <button id="uploadImageButton" class="button-primary">Last opp bilde</button>
+            <div id="imageList" class="image-list">
+                <!-- Images will be populated here via JavaScript -->
+            </div>
+        </section>
 
-    <div id="staffTab" class="tab-content">
-        <h2>Våre Ansatte</h2>
-        <p>Ansattadministrasjon kommer snart...</p>
-    </div>
+        <section id="staffTab" class="tab-content">
+            <h2>Våre Ansatte</h2>
+            <p>Ansattadministrasjon kommer snart...</p>
+        </section>
+    </main>
 
     <!-- New Article Modal -->
     <div id="articleModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000;">
