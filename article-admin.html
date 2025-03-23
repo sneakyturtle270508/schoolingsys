@@ -7,89 +7,83 @@
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <header class="admin-header">
+    <div class="admin-header">
         <h1>Admin Panel - Sandoya Montessori</h1>
-        <nav>
+        <div>
             <span id="userEmail">Loading...</span>
             <button id="logoutButton" class="button-primary button-danger">Logg ut</button>
-        </nav>
-    </header>
+        </div>
+    </div>
 
-    <nav class="tabs">
-        <button class="tab active" data-tab="articles">Mine Artikler</button>
-        <button class="tab" data-tab="images">Mine Bilder</button>
-        <button class="tab" data-tab="staff">Våre Ansatte</button>
-    </nav>
+    <div class="tabs">
+        <div class="tab active" data-tab="articles">Mine Artikler</div>
+        <div class="tab" data-tab="images">Mine Bilder</div>
+        <div class="tab" data-tab="staff">Våre Ansatte</div>
+    </div>
 
-    <main>
-        <section id="articlesTab" class="tab-content active">
-            <header class="section-header">
-                <h2>Mine Artikler</h2>
-                <button id="newArticleButton" class="button-primary">Ny Artikkel</button>
-            </header>
-            <ul class="article-list" id="articleList">
-                <!-- Articles will be populated here via JavaScript -->
-            </ul>
-        </section>
+    <div id="articlesTab" class="tab-content active">
+        <div class="section-header">
+            <h2>Mine Artikler</h2>
+            <button id="newArticleButton" class="button-primary">Ny Artikkel</button>
+        </div>
+        <div class="article-list" id="articleList">
+            <!-- Articles will be populated here via JavaScript -->
+        </div>
+    </div>
 
-        <section id="imagesTab" class="tab-content">
-            <h2>Mine Bilder</h2>
-            <button id="uploadImageButton" class="button-primary">Last opp bilde</button>
-            <figure id="imageList" class="image-list">
-                <!-- Images will be populated here via JavaScript -->
-            </figure>
-        </section>
+    <div id="imagesTab" class="tab-content">
+        <h2>Mine Bilder</h2>
+        <button id="uploadImageButton" class="button-primary">Last opp bilde</button>
+        <div id="imageList" class="image-list">
+            <!-- Images will be populated here via JavaScript -->
+        </div>
+    </div>
 
-        <section id="staffTab" class="tab-content">
-            <h2>Våre Ansatte</h2>
-            <p>Ansattadministrasjon kommer snart...</p>
-        </section>
-    </main>
+    <div id="staffTab" class="tab-content">
+        <h2>Våre Ansatte</h2>
+        <p>Ansattadministrasjon kommer snart...</p>
+    </div>
 
     <!-- New Article Modal -->
-    <dialog id="articleModal" class="modal">
-        <article class="modal-content">
+    <div id="articleModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="background: white; width: 80%; max-width: 800px; margin: 50px auto; padding: 20px; border-radius: 8px; max-height: 80vh; overflow-y: auto;">
             <h2 id="modalTitle">Ny Artikkel</h2>
-            <form>
-                <div class="form-group">
-                    <label for="articleTitle">Tittel:</label>
-                    <input type="text" id="articleTitle" class="full-width">
+            <div style="margin-bottom: 15px;">
+                <label for="articleTitle">Tittel:</label>
+                <input type="text" id="articleTitle" style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="articleIntro">Introduksjon:</label>
+                <textarea id="articleIntro" rows="4" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea>
+            </div>
+            <div id="contentSections">
+                <!-- Content sections will be added here -->
+            </div>
+            <button id="addSubtitleButton" class="button-primary" style="margin-right: 10px;">Legg til subtittel</button>
+            <button id="addParagraphButton" class="button-primary">Legg til paragraf</button>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+                <button id="previewButton" class="button-primary">Forhåndsvis</button>
+                <div>
+                    <button id="cancelButton" style="margin-right: 10px;">Avbryt</button>
+                    <button id="saveArticleButton" class="button-primary">Lagre Artikkel</button>
                 </div>
-                <div class="form-group">
-                    <label for="articleIntro">Introduksjon:</label>
-                    <textarea id="articleIntro" rows="4" class="full-width"></textarea>
-                </div>
-                <section id="contentSections">
-                    <!-- Content sections will be added here -->
-                </section>
-                <div class="button-group">
-                    <button type="button" id="addSubtitleButton" class="button-primary">Legg til subtittel</button>
-                    <button type="button" id="addParagraphButton" class="button-primary">Legg til paragraf</button>
-                </div>
-                <footer class="modal-actions">
-                    <button type="button" id="previewButton" class="button-primary">Forhåndsvis</button>
-                    <div>
-                        <button type="button" id="cancelButton">Avbryt</button>
-                        <button type="button" id="saveArticleButton" class="button-primary">Lagre Artikkel</button>
-                    </div>
-                </footer>
-            </form>
-        </article>
-    </dialog>
+            </div>
+        </div>
+    </div>
 
     <!-- Preview Modal -->
-    <dialog id="previewModal" class="modal">
-        <article class="modal-content">
+    <div id="previewModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="background: white; width: 80%; max-width: 800px; margin: 50px auto; padding: 20px; border-radius: 8px; max-height: 80vh; overflow-y: auto;">
             <h2>Forhåndsvisning</h2>
-            <section id="previewContent">
+            <div id="previewContent">
                 <!-- Preview content will be inserted here -->
-            </section>
-            <footer class="modal-actions">
+            </div>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between;">
                 <button id="backToEditButton" class="button-primary">Tilbake til redigering</button>
                 <button id="publishButton" class="button-primary">Publiser</button>
-            </footer>
-        </article>
-    </dialog>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="article-admin.js"></script>
 </body>
