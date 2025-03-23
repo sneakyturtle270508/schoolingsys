@@ -1,20 +1,15 @@
-Ting jeg lærer
-•	Database-bruk (firebase)
-•	Login med firebase
-•	Ux og ui
-•	Brukervennlighet 
-•	Bruk av documentasjon
-•	Lage documentasjon
+**Things I am learning:**  
+- Using databases (Firebase)  
+- Login with Firebase  
+- UX and UI (User Experience and User Interface)  
+- Usability  
+- Using documentation  
+- Creating documentation  
 
-Finne farger i logoen som kan brukes:
-Farge 1: blå hex: 458fcc
-Farge2: grønn hex: 89bd4f
-Farge3: beuige hex: e3ddd1
+**Finding colors in the logo that can be used:**  
+- **Color 1:** Blue (hex: `#458FCC`)  
+- **Color 2:** Green (hex: `#89BD4F`)  
+- **Color 3:** Beige (hex: `#E3DDD1`)  
 
-
-made a js-dokument for the header so it is the same on all sites
-name= "header.js"
-
-   
-
-
+**Created a JavaScript file for the header, so it is the same on all pages:**  
+- **File name:** `header.js`
