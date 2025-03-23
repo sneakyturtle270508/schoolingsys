@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .user-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 200px;
+            border-radius: 4px;
+        }
+
+        button.logout {
+            background-color: #db4437;
+        }
+
+        /* Mobile-friendly styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .user-info {
+                padding: 10px;
+            }
+
+            button {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        
+        <div class="user-info">
+            <h2>User Information</h2>
+            <p>Email: <span id="userEmail">Loading...</span></p>
+            <p>User ID: <span id="userId">Loading...</span></p>
+        </div>
+        
+        <button id="logoutButton" class="logout">Logout</button>
+        <button id="goToArticlesButton">Go to Articles</button>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

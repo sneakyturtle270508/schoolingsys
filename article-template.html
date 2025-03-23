@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikkel</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: transparent;
+        }
+
+        /* Minimal Back Button */
+        .back-button {
+            font-size: 1rem;
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #555;
+            text-decoration: underline;
+            text-decoration-thickness: 4px;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 50px auto 0;
+        }
+
+        .content {
+            margin-bottom: 40px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .margin-bottom {
+            margin-bottom: 20px;
+        }
+
+        .large-text {
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        .small-text {
+            font-size: 1.1rem;
+            font-weight: 100;
+        }
+
+        /* Image Styling */
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+        }
+
+        .centre {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        figure {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        figure img {
+            width: 49%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile-friendly styles */
+        @media (max-width: 600px) {
+            .large-text {
+                font-size: 2rem;
+            }
+
+            .small-text {
+                font-size: 1rem;
+            }
+
+            figure img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="javascript:history.back()" class="back-button">Tilbake</a>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="container">
+        <!-- Article Section -->
+        <section class="content text-center">
+            <h1 class="large-text margin-bottom" id="articleTitle">Artikkel Tittel</h1>
+        </section>
+
+        <!-- Article Body Content -->
+        <article class="content text-justify small-text" id="articleContent">
+            <!-- Content will be dynamically inserted here -->
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sandøya Montessori</p>
+    </footer>
+
+   <script type="module" src="article-template.js" ></script>
+</body>
+</html>

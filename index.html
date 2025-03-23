@@ -3,12 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sandøya montessori</title>
+    <title>Sandøya Montessori</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Container for Articles */
+        .articles-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Article Button Styling */
+        .article-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #4285F4;
+            color: white;
+            text-align: left;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .article-button:hover {
+            background-color: #357ABD;
+        }
+
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .article-date {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+    </style>
 </head>
 <body>
     <header id="headerjs"></header>
-<main></main>
-<footer></footer>
+    <main class="articles-container">
+        <h1>Artikler</h1>
+        <div id="articleList">
+            <!-- Articles will be dynamically inserted here -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sandøya Montessori</p>
+    </footer>
+
+    <script type="module">
+        // Import Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA46HBePnhgJKKBG0WfpGnYk5bInRQXNG4",
+            authDomain: "sandmontessadmin.firebaseapp.com",
+            projectId: "sandmontessadmin",
+            storageBucket: "sandmontessadmin.firebasestorage.app",
+            messagingSenderId: "967852826423",
+            appId: "1:967852826423:web:1ebfd677a89411b76984b2",
+            measurementId: "G-E0VE27XL96"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // DOM elements
+        const articleList = document.getElementById('articleList');
+
+        // Load articles from Firestore
+        async function loadArticles() {
+            try {
+                // Query to get the 3 most recent articles
+                const articlesQuery = query(
+                    collection(db, "articles"),
+                    orderBy("createdAt", "desc"),
+                    limit(3) // Limit to 3 articles
+                );
+                const querySnapshot = await getDocs(articlesQuery);
+
+                // Clear existing articles
+                articleList.innerHTML = '';
+
+                querySnapshot.forEach((doc) => {
+                    const article = doc.data();
+                    const articleElement = createArticleElement(doc.id, article);
+                    articleList.appendChild(articleElement);
+                });
+
+                // If no articles, show message
+                if (querySnapshot.empty) {
+                    articleList.innerHTML = '<p>Ingen artikler funnet.</p>';
+                }
+            } catch (error) {
+                console.error("Error loading articles: ", error);
+                articleList.innerHTML = '<p>Feil ved lasting av artikler. Prøv igjen senere.</p>';
+            }
+        }
+
+        // Create article button element
+        function createArticleElement(id, article) {
+            const button = document.createElement('button');
+            button.className = 'article-button';
+
+            const date = article.createdAt ? new Date(article.createdAt.toDate()) : new Date();
+            const formattedDate = `${date.getDate()}. ${getMonthName(date.getMonth())} ${date.getFullYear()}`;
+
+            button.innerHTML = `
+                <div class="article-title">${article.title}</div>
+                <div class="article-date">Publisert: ${formattedDate}</div>
+            `;
+
+            // Add event listener to redirect to the article page
+            button.addEventListener('click', () => {
+                const encodedContent = encodeURIComponent(JSON.stringify(article.sections));
+                const encodedTitle = encodeURIComponent(article.title);
+                const encodedIntro = encodeURIComponent(article.intro);
+
+                window.location.href = `article-template.html?title=${encodedTitle}&intro=${encodedIntro}&content=${encodedContent}`;
+            });
+
+            return button;
+        }
+
+        // Get Norwegian month name
+        function getMonthName(monthIndex) {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+            return months[monthIndex];
+        }
+
+        // Load articles when the page loads
+        loadArticles();
+    </script>
 </body>
-<script src="header.js"></script>
 </html>
