@@ -11,9 +11,9 @@
   - Writing clear and comprehensive project documentation
 
 ## 🎨 Logo Color Palette
-- ![#458FCC](https://via.placeholder.com/15/458FCC/000000?text=+) **Blue**: `#458FCC` (Primary accent)
-- ![#89BD4F](https://via.placeholder.com/15/89BD4F/000000?text=+) **Green**: `#89BD4F` (Secondary accent)
-- ![#E3DDD1](https://via.placeholder.com/15/E3DDD1/000000?text=+) **Beige**: `#E3DDD1` (Neutral background tone)
+- **Blue**: `#458FCC` (Primary accent)
+- **Green**: `#89BD4F` (Secondary accent)
+- **Beige**: `#E3DDD1` (Neutral background tone)
 
 ## 📂 Project Structure
 - **Shared Header**: Ensures consistency across all pages
