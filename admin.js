@@ -35,7 +35,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in, display user info
         userEmail.textContent = user.email;
-        userId.textContent = user.uid;
+        
 
         // Enable the "Go to Articles" button
         goToArticlesButton.disabled = false;
